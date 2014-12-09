@@ -5,7 +5,9 @@ do
 	printf 'Программа блокировки пользователей\n'
 	printf 'Программа позволяет блокировать и разблокировать портфели пользователей\n'
 	printf 'Разработчик: Шедько Андрей \n'
-	echo 'Введите имя пользователя:'
+	printf "Cписок пользователей: \n"
+	gawk -F ':' '{if ( $3>500 ) print "-//-| "$1  }' /etc/passwd;
+	printf "Введите имя пользователя\n"
 	read NAME
 	VAR="$(cut -f1 -d':' /etc/passwd |fgrep -c -x "$NAME")"
 	#echo $NAME
@@ -28,7 +30,7 @@ do
 	echo 'Продолжить? (anykey/n)'
 	read cond
 	if [[ $cond == "n" ]]; then
-		printf "Выход"
+		printf "Выход\n"
 		exit 250
 	else
 		printf "Продолжим\n"
