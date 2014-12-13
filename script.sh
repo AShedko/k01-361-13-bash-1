@@ -30,7 +30,7 @@ do
 	echo 'Продолжить? (anykey/n)'
 	read cond
 	if [[ $cond == "n" ]]; then
-		echo "Выход\n"
+		echo "Выход"
 		exit 250
 	else
 		printf "Продолжим\n"
